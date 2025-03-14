@@ -16,9 +16,7 @@ class PageController extends Controller
         $slide = Slide::all();
         $new_product = Product::where("new", "1")->paginate(4);
         $promotion_product = Product::where("promotion_price", "1")->paginate(8);
-        $type_product = TypeProduct::all(); 
-
-        return view("pages.homepage", compact("slide", "new_product", "promotion_product", "type_product"));
+        return view("pages.homepage", compact("slide", "new_product", "promotion_product"));
     }
 
     public function getLoaiSP($type)
