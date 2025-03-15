@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BillDetail;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Slide;
@@ -25,6 +26,22 @@ class PageController extends Controller
         $type_product = TypeProduct::all();
         $sp_khac = Product::where("id_type",'<>',$type)->paginate(3);
         return view('pages.categories', compact('sp_theoloai','type_product','sp_khac'));
+
+    }
+
+    // Admin
+    public function getIndexAdmin() {
+        $products = Product::all();
+        return view('pageadmin.admin') -> with(['products' => $products, 'sumSold' => count(BillDetail::all())]);
+    }      
+    public function getAdminAdd() {
+        return view('pageadmin.formAdd');
+    }
+    public function getAdminEdit($id) {
+        $products = Product::find($id);
+        return view('pageadmin.formEdit') -> with(['products' => $products]);
+    }
+    public function exportAdminProduct() {
 
     }
 }
