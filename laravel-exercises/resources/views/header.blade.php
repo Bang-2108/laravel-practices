@@ -10,10 +10,10 @@
       <div class="pull-right auto-width-right">
         <ul class="top-details menu-beta l-inline">
           @if(Session::has('user'))
-          <li><a href="logout"><i class="fa fa-user"></i>{{Session('user')->name}}</a></li>
+          <li><a href="/logout"><i class="fa fa-user"></i>{{Session('user')->name}}</a></li>
           @else
-          <li><a href="register">Đăng kí</a></li>
-          <li><a href="login">Đăng nhập</a></li>
+          <li><a href="/signin">Đăng kí</a></li>
+          <li><a href="/signup">Đăng nhập</a></li>
           @endif
         </ul>
       </div>
@@ -23,7 +23,7 @@
   <div class="header-body">
     <div class="container beta-relative">
       <div class="pull-left">
-        <a href="trangchu" id="logo"><img src="source/assets/dest/images/logo-cake.png" width="200px" alt=""></a>
+        <a href="/homepage" id="logo"><img src="source/assets/dest/images/logo-cake.png" width="200px" alt=""></a>
       </div>
       <div class="pull-right beta-components space-left ov">
         <div class="space10">&nbsp;</div>

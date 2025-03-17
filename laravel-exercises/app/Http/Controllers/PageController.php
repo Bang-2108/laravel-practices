@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Slide;
+use App\Models\Comment;
 use App\Models\TypeProduct;
 
 class PageController extends Controller
@@ -27,6 +28,18 @@ class PageController extends Controller
         $type_product = TypeProduct::all();
         $sp_khac = Product::where("id_type",'<>',$type)->paginate(3);
         return view('pages.categories', compact('sp_theoloai','type_product','sp_khac'));
+    }
 
+    public function getDetail (Request $request) {
+        $products = Product::where('id', $request -> id) -> first();
+        $splienquan = Product::where('id', '<>', $products -> id, 'and', 'id_type', '=', $products -> id_type,) -> paginate(3);
+        $comments = Comment::where('id_product', $request -> id) -> get();
+        return view('pages.detail', compact('products', 'splienquan', 'comments'));
+    }
+    public function getContact() {
+        return view('pages.contact');
+    }
+    public function getAbout() {
+        return view('pages.about');
     }
 }
