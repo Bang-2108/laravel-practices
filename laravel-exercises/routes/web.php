@@ -22,7 +22,7 @@ Route::get('/admin-add-form', [PageController::class, 'getAdminAdd'])->name('add
 Route::post('/admin-add-form', [ProductController::class, 'postAdminAdd']);
 // Cake_Shop - Admin - Edit product
 Route::get('/admin-edit-form/{id}', [PageController::class, 'getAdminEdit'])->name('admin-edit-form');
-Route::post('/admin-edit/{id}', [ProductController::class, 'postAdminEdit']);
+Route::post('/admin-edit', [ProductController::class, 'postAdminEdit']);
 // Cake_Shop - Admin - Delete product
 Route::post('/admin-delete/{id}', [ProductController::class, 'postAdminDelete']);
 // Cake_Shop - Admin - Export

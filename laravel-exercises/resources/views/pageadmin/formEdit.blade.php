@@ -4,7 +4,7 @@
 <div class="space50">&nbsp;</div>
 <div class="container beta-relative">
     <div class="pull-left">
-        <h2>Add product</h2>
+        <h2>Edit product</h2>
     </div>
     <div class="space50">&nbsp;</div>
     @include('error')

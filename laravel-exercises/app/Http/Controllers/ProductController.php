@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BillDetail;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -72,8 +73,10 @@ class ProductController extends Controller
     
     // Call funtion getIndexAdmin()
     public function getIndexAdmin()
-    {
-        return view('pageadmin.admin'); 
+    {    
+        $products = Product::all();
+        $sumSold = count(BillDetail::all());
+        return view('pageadmin.admin')->with(['products' => $products, 'sumSold' => $sumSold]);
     }
        
 }
