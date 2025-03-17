@@ -53,9 +53,8 @@ class PageController extends Controller
     public function getIndexAdmin() {
         $products = Product::all();
         $type_product = TypeProduct::all(); 
-        // return view('pageadmin.admin')->with(['products' => Product::all(), 'type_product' => TypeProduct::all(), 'sumSold' => BillDetail::count()]);
-        return view('pageadmin.admin')->with(['products' => $products, 'type_product' => $type_product,'sumSold' => BillDetail::count()]);
-    }      
+        return view('pageadmin.admin')->with(['products' => $products, 'type_product' => $type_product, 'sumSold' => BillDetail::count()]);
+    }   
 
     public function getAdminAdd() {
         $type_product = TypeProduct::all(); 
@@ -67,6 +66,7 @@ class PageController extends Controller
         $type_product = TypeProduct::all(); 
         return view('pageadmin.formEdit')->with(['products' => $products, 'type_product' => $type_product]); 
     }
+    
     public function exportAdminProduct() {
 
     }

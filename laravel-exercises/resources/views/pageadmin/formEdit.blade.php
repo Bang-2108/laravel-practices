@@ -9,42 +9,42 @@
     <div class="space50">&nbsp;</div>
     @include('error')
     <div class="container">
-        <form action="admin-edit" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/admin-edit') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">
                 <label for='editName'>ID</label>
-                <input type="number" class="form-control" name="editId" value="{{$product->id}}" readonly>
+                <input type="number" class="form-control" name="editId" value="{{$products->id}}" readonly>
             </div>
 
             <div class="form-group">
                 <label for='editName'>Name</label>
-                <input type="text" class="form-control" name="editName" id="editName" placeholder="Enter name" value="{{$product->name}}" required>
+                <input type="text" class="form-control" name="editName" id="editName" placeholder="Enter name" value="{{$products->name}}" required>
             </div>
 
             <div class="form-group">
                 <label for='editPrice'>Price</label>
-                <input type="number" min=10000 class="form-control" name="editPrice" id="editPrice" placeholder="Enter price" value="{{$product->unit_price}}" required>
+                <input type="number" min=10000 class="form-control" name="editPrice" id="editPrice" placeholder="Enter price" value="{{$products->unit_price}}" required>
             </div>
 
             <div class="form-group">
                 <label for='editPromotionPrice'>Promotion Price</label>
-                <input type="number" min=10000 class="form-control" name="editPromotionPrice" id="editPromotionPrice" value="{{$product->promotion_price}}" placeholder="Enter promotion price">
+                <input type="number" min=10000 class="form-control" name="editPromotionPrice" id="editPromotionPrice" value="{{$products->promotion_price}}" placeholder="Enter promotion price">
             </div>
 
             <div class="form-group">
                 <label for='editUnit'>Unit</label>
-                <input type="text" class="form-control" name="editUnit" id="editUnit" value="{{$product->unit}}" placeholder="Enter unit" required>
+                <input type="text" class="form-control" name="editUnit" id="editUnit" value="{{$products->unit}}" placeholder="Enter unit" required>
             </div>
 
             <div class="form-group">
                 <label for='editNew'>New</label>
-                <input type="number" min=0 class="form-control" name="editNew" id="editNew" value="{{$product->new}}" placeholder="Enter new" required>
+                <input type="number" min=0 class="form-control" name="editNew" id="editNew" value="{{$products->new}}" placeholder="Enter new" required>
             </div>
 
             <div class="form-group">
                 <label for='editType'>Type</label>
-                <input type="text" class="form-control" name="editType" id="editType" value="{{$product->id_type}}" placeholder="Enter type" required>
+                <input type="text" class="form-control" name="editType" id="editType" value="{{$products->id_type}}" placeholder="Enter type" required>
             </div>
 
             <div class="form-group">
@@ -53,7 +53,7 @@
             </div>
 
             <div class="form-group">
-                <img id="preview-image-before-upload" src="source/image/product/{{$product->image}}" alt="preview image" style="max-height: 250px;">
+                <img id="preview-image-before-upload" src="source/image/product/{{$products->image}}" alt="preview image" style="max-height: 250px;">
                 <script type="text/javascript">
                     $(document).ready(function(e) {
                         $('#inputImage').change(function() {
@@ -69,7 +69,7 @@
 
             <div class="form-group">
                 <label for='editDescription'>Description</label>
-                <textarea name="editDescription" required>{{$product->description}}</textarea>
+                <textarea name="editDescription" required>{{$products->description}}</textarea>
                 <script>
                     CKEDITOR.replace('editDescription');
                 </script>
