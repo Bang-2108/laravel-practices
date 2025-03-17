@@ -28,4 +28,4 @@ Route::post('/admin-add-form', [ProductController::class, 'postAdminAdd']);
 Route::get('/admin-edit-form/{id}', [PageController::class, 'getAdminEdit']);
 Route::post('/admin-edit', [ProductController::class, 'postAdminEdit']);
 // Cake_Shop - Admin - Delete product
-Route::post('/admin-delete/{$id}', [ProductController::class, 'postAdminDelete']);
+Route::post('/admin-delete/{id}', [ProductController::class, 'postAdminDelete']);

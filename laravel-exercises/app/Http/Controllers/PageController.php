@@ -49,24 +49,20 @@ class PageController extends Controller
         return view('pages.about',  compact('type_product'));
     }
 
-    // Admin
+    /// Admin
     public function getIndexAdmin() {
         $products = Product::all();
-        $type_product = TypeProduct::all(); 
-        return view('pageadmin.admin')->with(['products' => $products, 'type_product' => $type_product, 'sumSold' => BillDetail::count()]);
-    }   
-
+        $type_product = TypeProduct::all();
+        $sumSold = BillDetail::count();
+        return view('pageadmin.admin')->with(['products' => $products, 'type_product' => $type_product, 'sumSold' => $sumSold]);
+    }         
     public function getAdminAdd() {
-        $type_product = TypeProduct::all(); 
-        return view('pageadmin.formAdd')->with(['type_product' => $type_product]); 
+        return view('pageadmin.formAdd');
     }
-
     public function getAdminEdit($id) {
         $products = Product::find($id);
-        $type_product = TypeProduct::all(); 
-        return view('pageadmin.formEdit')->with(['products' => $products, 'type_product' => $type_product]); 
+        return view('pageadmin.formEdit') -> with(['products' => $products]);
     }
-    
     public function exportAdminProduct() {
 
     }
