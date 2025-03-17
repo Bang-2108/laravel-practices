@@ -44,7 +44,7 @@
                                 <div class="col-sm-4">	
                                     <div class="single-item">	
                                         <div class="single-item-header">	
-                                            <a href=""><img width="200" height="200" src="/source/images/product/{{$sp->image}}" alt=""></a>	
+                                            <a href=""><img width="200" height="200" src="/source/image/product/{{$sp->image}}" alt=""></a>	
                                         </div>	
                                         <div class="single-item-body">	
                                             <p class="single-item-title">{{$sp->name}}</p>	
@@ -58,14 +58,14 @@
                                             </p>	
                                         </div>	
                                         <div class="single-item-caption">	
-                                            {{-- <a class="add-to-cart pull-left" href="{{route('themgiohang',$sp->id)}}">
+                                            <a class="add-to-cart pull-left" href="">
                                                 <i class="fa fa-shopping-cart"></i>
-                                            </a>	 --}}
+                                            </a>	
                                             <a class="add-to-cart pull-left" href="haha">
                                                 <i class="fa fa-shopping-cart"></i>
                                             </a>	
                                             <a class="add-to-cart pull-left" href="#"><i class="fa fa-heart"></i></a>	
-                                            <a class="beta-btn primary" href="/type/{{$sp->id}}">Details <i class="fa fa-chevron-right"></i></a>	
+                                            <a class="beta-btn primary" href="/detail/{{$sp->id}}">Details <i class="fa fa-chevron-right"></i></a>	
                                             <div class="clearfix"></div>	
                                         </div>	
                                     </div>	
@@ -87,7 +87,7 @@
                                 <div class="col-sm-3">	
                                     <div class="single-item">	
                                         <div class="single-item-header">	
-                                            <a href=""><img width="200" height="200" src="/source/images/product/{{$khac->image}}" alt=""></a>	
+                                            <a href="/detail/{{$khac->id}}"><img width="200" height="200" src="/source/image/product/{{$khac->image}}" alt=""></a>	
                                         </div>	
                                         @if($khac->promotion_price==!0)	
                                             <div class="ribbon-wrapper">	
@@ -108,7 +108,7 @@
                                         </div>	
                                         <div class="single-item-caption">	
                                             <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>	
-                                            <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>	
+                                            <a class="beta-btn primary" href="/detail/{{$khac->id}}">Details <i class="fa fa-chevron-right"></i></a>	
                                             <div class="clearfix"></div>	
                                         </div>	
                                     </div>	

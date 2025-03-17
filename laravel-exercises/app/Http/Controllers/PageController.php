@@ -7,10 +7,10 @@ use App\Models\Product;
 use App\Models\Slide;
 use App\Models\Comment;
 use App\Models\TypeProduct;
+use App\Models\BillDetail;
 
 class PageController extends Controller
 {
-
 
     public function getIndex()
     {
@@ -32,14 +32,42 @@ class PageController extends Controller
 
     public function getDetail (Request $request) {
         $products = Product::where('id', $request -> id) -> first();
+        $type_product = TypeProduct::all();
+        // $splienquan = Product::where('id', '<>', $products->id) -> where('id_type', '=', $products->id_type) -> paginate(3);
         $splienquan = Product::where('id', '<>', $products -> id, 'and', 'id_type', '=', $products -> id_type,) -> paginate(3);
         $comments = Comment::where('id_product', $request -> id) -> get();
-        return view('pages.detail', compact('products', 'splienquan', 'comments'));
+        // return view('pages.detail', compact('products', 'splienquan', 'comments'));
+        return view('pages.detail', compact('products', 'splienquan', 'comments', 'type_product'));
+
     }
     public function getContact() {
-        return view('pages.contact');
+        $type_product = TypeProduct::all();
+        return view('pages.contact',  compact('type_product'));
     }
     public function getAbout() {
-        return view('pages.about');
+        $type_product = TypeProduct::all();
+        return view('pages.about',  compact('type_product'));
+    }
+
+    // Admin
+    public function getIndexAdmin() {
+        $products = Product::all();
+        $type_product = TypeProduct::all(); 
+        // return view('pageadmin.admin')->with(['products' => Product::all(), 'type_product' => TypeProduct::all(), 'sumSold' => BillDetail::count()]);
+        return view('pageadmin.admin')->with(['products' => $products, 'type_product' => $type_product,'sumSold' => BillDetail::count()]);
+    }      
+
+    public function getAdminAdd() {
+        $type_product = TypeProduct::all(); 
+        return view('pageadmin.formAdd')->with(['type_product' => $type_product]); 
+    }
+
+    public function getAdminEdit($id) {
+        $products = Product::find($id);
+        $type_product = TypeProduct::all(); 
+        return view('pageadmin.formEdit')->with(['products' => $products, 'type_product' => $type_product]); 
+    }
+    public function exportAdminProduct() {
+
     }
 }
