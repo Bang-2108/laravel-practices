@@ -91,7 +91,7 @@
             <nav class="main-menu">
                 <ul class="l-inline ov">
                     <li><a href="/homepage">Trang chủ</a></li>
-                    <li><a href="#">Sản phẩm</a>
+                    <li><a href="/homepage">Sản phẩm</a>
                         <ul class="sub-menu">
                             @foreach($type_product as $type)	
                                 <li><a href="/type/{{$type->id}}">{{$type->name}}</a></li>	
