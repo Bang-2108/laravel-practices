@@ -59,9 +59,9 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select>
-              <!-- <a class="add-to-cart" href="{{route('themgiohang',$products->id)}}"><i
-                  class="fa fa-shopping-cart"></i></a>
-              <div class="clearfix"></div> -->
+              <!-- <a class="add-to-cart" href=""><i
+                  class="fa fa-shopping-cart"></i></a> -->
+              <div class="clearfix"></div>
             </div>
           </div>
         </div>
@@ -123,7 +123,7 @@
             <div class="col-sm-4">
               <div class="single-item">
                 <div class="single-item-header">
-                  <a href="detail/{{$sp->id}}"><img src="/source/image/product/{{$sp->image}}" alt=""></a>
+                  <a href="/detail/{{$sp->id}}"><img src="/source/image/product/{{$sp->image}}" alt=""></a>
                 </div>
                 @if($sp->promotion_price==!0)
                 <div class="ribbon-wrapper">
@@ -141,12 +141,12 @@
                     @endif
                   </p>
                 </div>
-                <!-- <div class="single-item-caption">
-                  <a class="add-to-cart pull-left" href="{{route('themgiohang',$sp->id)}}"><i
-                      class="fa fa-shopping-cart"></i></a>
-                  <a class="beta-btn primary" href="detail/{{$sp->id}}">Details <i class="fa fa-chevron-right"></i></a>
+                <div class="single-item-caption">
+                  <!-- <a class="add-to-cart pull-left" href=""><i
+                      class="fa fa-shopping-cart"></i></a> -->
+                  <a class="beta-btn primary" href="/detail/{{$sp->id}}">Details <i class="fa fa-chevron-right"></i></a>
                   <div class="clearfix"></div>
-                </div> -->
+                </div>
               </div>
             </div>
             @endforeach
@@ -198,7 +198,7 @@
           <div class="widget-body">
             <div class="beta-sales beta-lists">
               <div class="media beta-sales-item">
-                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/1.png"
+                <a class="pull-left" href="product.html"><img src="source/assets/dest/image/products/sales/1.png"
                     alt=""></a>
                 <div class="media-body">
                   Sample Woman Top
@@ -206,7 +206,7 @@
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/2.png"
+                <a class="pull-left" href="product.html"><img src="source/assets/dest/image/products/sales/2.png"
                     alt=""></a>
                 <div class="media-body">
                   Sample Woman Top
@@ -214,7 +214,7 @@
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/3.png"
+                <a class="pull-left" href="product.html"><img src="source/assets/dest/image/products/sales/3.png"
                     alt=""></a>
                 <div class="media-body">
                   Sample Woman Top
@@ -222,7 +222,7 @@
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/4.png"
+                <a class="pull-left" href="product.html"><img src="source/assets/dest/image/products/sales/4.png"
                     alt=""></a>
                 <div class="media-body">
                   Sample Woman Top

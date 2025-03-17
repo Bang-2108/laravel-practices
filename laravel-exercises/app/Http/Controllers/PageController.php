@@ -30,7 +30,8 @@ class PageController extends Controller
 
     public function getDetail (Request $request) {
         $products = Product::where('id', $request -> id) -> first();
-        $splienquan = Product::where('id', '<>', $products -> id, 'and', 'id_type', '=', $products -> id_type,) -> paginate(3);
+        $splienquan = Product::where('id', '<>', $products->id) -> where('id_type', '=', $products->id_type) -> paginate(3);
+        // $splienquan = Product::where('id', '<>', $products -> id, 'and', 'id_type', '=', $products -> id_type,) -> paginate(3);
         $comments = Comment::where('id_product', $request -> id) -> get();
         return view('pages.detail', compact('products', 'splienquan', 'comments'));
     }

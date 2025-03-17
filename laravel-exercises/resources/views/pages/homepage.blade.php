@@ -72,9 +72,9 @@
                                             </p>	
                                         </div>	
                                         <div class="single-item-caption">	
-                                            {{-- <a class="add-to-cart pull-left" href="{{route('themgiohang',$new->id)}}">
+                                            <a class="add-to-cart pull-left" href="">
                                                 <i class="fa fa-shopping-cart"></i>
-                                            </a>	 --}}
+                                            </a>	 
                                             <a class="add-to-cart pull-left" href="hoo">
                                                 <i class="fa fa-shopping-cart"></i>
                                             </a>
@@ -120,9 +120,9 @@
                                             </p>	
                                         </div>	
                                         <div class="single-item-caption">	
-                                            {{-- <a class="add-to-cart pull-left" href="{{route('themgiohang',$km->id)}}">
+                                            <a class="add-to-cart pull-left" href="">
                                                 <i	class="fa fa-shopping-cart"></i>
-                                            </a>	 --}}
+                                            </a>	 
                                             <a class="add-to-cart pull-left" href="hee">
                                                 <i	class="fa fa-shopping-cart"></i>
                                             </a>
