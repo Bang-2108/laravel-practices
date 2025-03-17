@@ -90,7 +90,7 @@
             <div class="visible-xs clearfix"></div>
             <nav class="main-menu">
                 <ul class="l-inline ov">
-                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="/homepage">Trang chủ</a></li>
                     <li><a href="#">Sản phẩm</a>
                         <ul class="sub-menu">
                             @foreach($type_product as $type)	
@@ -98,8 +98,8 @@
                             @endforeach	
                         </ul>
                     </li>
-                    <li><a href="about.html">Giới thiệu</a></li>
-                    <li><a href="contacts.html">Liên hệ</a></li>
+                    <li><a href="/about">Giới thiệu</a></li>
+                    <li><a href="/contact">Liên hệ</a></li>
                 </ul>
                 <div class="clearfix"></div>
             </nav>
