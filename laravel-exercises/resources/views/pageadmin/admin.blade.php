@@ -5,7 +5,7 @@
   <div class="container">
     <div class="col-12 col-md-6" style="background: red;color:white">Số sản phẩm: {{ count($products ?? []) }}</div>
     <div class="col-12 col-md-6" style="background: blue;color:white">Đã bán: <br />
-      <p>Tổng: {{$sumSold}}</p>
+      <p>Tổng: {{$sumSold ?? 0}}</p>
       <p>Hôm nay: 1</p>
       <p>Tháng này: 3</p>
       <p>Năm nay: 4</p>
@@ -35,7 +35,7 @@
       </tr>
     </thead>
     <tbody>
-      @foreach($products as $product)
+      @foreach($products ?? []  as $product)
       <tr class="products-list-admin">
         <th scope="row">{{$product->id}}</th>
         <th><img src="source/image/product/{{$product->image}}" alt="image" style="height: 100px;" /></th>

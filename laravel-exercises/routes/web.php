@@ -21,7 +21,12 @@ Route::get('/admin-export', [PageController::class, 'exportAdminProduct'])->name
 Route::get('/admin-add-form', [PageController::class, 'getAdminAdd'])->name('add-product');
 Route::post('/admin-add-form', [ProductController::class, 'postAdminAdd']);
 // Cake_Shop - Admin - Edit product
-Route::get('/admin-edit-form/{id}', [PageController::class, 'getAdminEdit']);
-Route::post('/admin-edit', [ProductController::class, 'postAdminEdit']);
+Route::get('/admin-edit-form/{id}', [PageController::class, 'getAdminEdit'])->name('admin-edit-form');
+Route::post('/admin-edit/{id}', [ProductController::class, 'postAdminEdit']);
 // Cake_Shop - Admin - Delete product
-Route::post('/admin-delete/{$id}', [ProductController::class, 'postAdminDelete']);
+Route::post('/admin-delete/{id}', [ProductController::class, 'postAdminDelete']);
+// Cake_Shop - Admin - Export
+Route::get('/admin-export', [PageController::class, 'exportAdminProduct']) -> name('export');
+// Route::get('/return-vnpay', function() {
+//     return view('vnpay.return-vnpay');
+// })

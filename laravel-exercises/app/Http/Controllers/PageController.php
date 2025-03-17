@@ -32,7 +32,8 @@ class PageController extends Controller
     // Admin
     public function getIndexAdmin() {
         $products = Product::all();
-        return view('pageadmin.admin') -> with(['products' => $products, 'sumSold' => count(BillDetail::all())]);
+        $sumSold = count(BillDetail::all());
+        return view('pageadmin.admin')->with(['products' => $products, 'sumSold' => $sumSold]);
     }      
     public function getAdminAdd() {
         return view('pageadmin.formAdd');
