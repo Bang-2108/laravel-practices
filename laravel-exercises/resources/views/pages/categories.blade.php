@@ -44,7 +44,7 @@
                                 <div class="col-sm-4">	
                                     <div class="single-item">	
                                         <div class="single-item-header">	
-                                            <a href=""><img width="200" height="200" src="/source/images/product/{{$sp->image}}" alt=""></a>	
+                                            <a href=""><img width="200" height="200" src="/source/image/product/{{$sp->image}}" alt=""></a>	
                                         </div>	
                                         <div class="single-item-body">	
                                             <p class="single-item-title">{{$sp->name}}</p>	
@@ -87,7 +87,7 @@
                                 <div class="col-sm-3">	
                                     <div class="single-item">	
                                         <div class="single-item-header">	
-                                            <a href=""><img width="200" height="200" src="/source/images/product/{{$khac->image}}" alt=""></a>	
+                                            <a href=""><img width="200" height="200" src="/source/image/product/{{$khac->image}}" alt=""></a>	
                                         </div>	
                                         @if($khac->promotion_price==!0)	
                                             <div class="ribbon-wrapper">	
