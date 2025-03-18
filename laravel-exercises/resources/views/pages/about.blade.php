@@ -7,7 +7,7 @@
         </div>
         <div class="pull-right">
             <div class="beta-breadcrumb font-large">
-                <a href="index.html">Home</a> / <span>Giới thiệu</span>
+                <a href="/homepage">Home</a> / <span>Giới thiệu</span>
             </div>
         </div>
         <div class="clearfix"></div>

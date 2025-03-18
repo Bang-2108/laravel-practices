@@ -16,7 +16,7 @@ class PageController extends Controller
     {
         $slide = Slide::all();
         $new_product = Product::where("new", "1")->paginate(4);
-        $promotion_product = Product::where("promotion_price", "1")->paginate(8);
+        $promotion_product = Product::where("promotion_price", "<>", "0")->paginate(8);
         $type_product = TypeProduct::all(); 
 
         return view("pages.homepage", compact("slide", "new_product", "promotion_product", "type_product"));
@@ -33,10 +33,8 @@ class PageController extends Controller
     public function getDetail (Request $request) {
         $products = Product::where('id', $request -> id) -> first();
         $type_product = TypeProduct::all();
-        // $splienquan = Product::where('id', '<>', $products->id) -> where('id_type', '=', $products->id_type) -> paginate(3);
         $splienquan = Product::where('id', '<>', $products -> id, 'and', 'id_type', '=', $products -> id_type,) -> paginate(3);
         $comments = Comment::where('id_product', $request -> id) -> get();
-        // return view('pages.detail', compact('products', 'splienquan', 'comments'));
         return view('pages.detail', compact('products', 'splienquan', 'comments', 'type_product'));
 
     }
