@@ -47,6 +47,12 @@ class PageController extends Controller
         return view('pages.about',  compact('type_product'));
     }
 
+    public function getSearch(Request $request) {
+        $key = $request->input('search'); 
+        $products = Product::where('name', 'LIKE', "%$key%")->paginate(6);
+        return view('pages.search', compact('products', 'key'));
+    }
+    
     /// Admin
     public function getIndexAdmin() {
         $products = Product::all();

@@ -56,7 +56,7 @@
                                         </div>	
                                         @if($new->promotion_price==!0)	
                                             <div class="ribbon-wrapper">	
-                                                <div class="ribbon sale">Sale</div>	
+                                                <div class="ribbon sale">Toàn</div>	
                                             </div>	
                                         @endif	
                                         <div class="single-item-body">	
@@ -72,9 +72,7 @@
                                             </p>	
                                         </div>	
                                         <div class="single-item-caption">	
-                                            {{-- <a class="add-to-cart pull-left" href="{{route('themgiohang',$new->id)}}">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>	 --}}
+                                            
                                             <a class="add-to-cart pull-left" href="hoo">
                                                 <i class="fa fa-shopping-cart"></i>
                                             </a>

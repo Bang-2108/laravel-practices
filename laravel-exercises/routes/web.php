@@ -17,6 +17,7 @@ Route::get('/type/{id}', [PageController::class, 'getLoaiSp']);
 Route::get('/detail/{id}', [PageController::class, 'getDetail']);
 Route::get('/contact', [PageController::class, 'getContact']);
 Route::get('/about', [PageController::class, 'getAbout']);
+Route::get('/search', [PageController::class, 'getSearch']) -> name('search');
 
 // Cake_Shop - Admin
 Route::get('/admin', [PageController::class, 'getIndexAdmin']);

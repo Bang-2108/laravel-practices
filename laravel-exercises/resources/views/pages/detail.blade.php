@@ -153,40 +153,41 @@
           </div>
         </div> <!-- .beta-products-list -->
       </div>
+
       <div class="col-sm-3 aside">
         <div class="widget">
           <h3 class="widget-title">Best Sellers</h3>
           <div class="widget-body">
             <div class="beta-sales beta-lists">
               <div class="media beta-sales-item">
-                <a class="pull-left" href="/detail/{{$sp->id}}"><img src="source\image\product\111.jpg"
+                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/1.png"
                     alt=""></a>
                 <div class="media-body">
-                  Bánh Crepe Đào
+                  Sample Woman Top
                   <span class="beta-sales-price">$34.55</span>
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="/detail/{{$sp->id}}"><img src="source\image\product\banh kem sinh nhat.jpg"
+                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/2.png"
                     alt=""></a>
                 <div class="media-body">
-                  Bánh kem
+                  Sample Woman Top
                   <span class="beta-sales-price">$34.55</span>
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="/detail/{{$sp->id}}"><img src="source\image\product\banh-mi-nhan-man.jpg"
+                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/3.png"
                     alt=""></a>
                 <div class="media-body">
-                Bánh Crepe Phap
+                  Sample Woman Top
                   <span class="beta-sales-price">$34.55</span>
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="/detail/{{$sp->id}}"><img src="source\image\product\111.jpg"
+                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/4.png"
                     alt=""></a>
                 <div class="media-body">
-                  Cup cake
+                  Sample Woman Top
                   <span class="beta-sales-price">$34.55</span>
                 </div>
               </div>
@@ -198,34 +199,34 @@
           <div class="widget-body">
             <div class="beta-sales beta-lists">
               <div class="media beta-sales-item">
-                <a class="pull-left" href="/detail/{{$sp->id}}"><img src="source\image\product\banhbonglantrung.jpg"
+                <a class="pull-left" href="product.html"><img src="source/assets/dest/image/products/sales/1.png"
                     alt=""></a>
                 <div class="media-body">
-                Bánh Crepe Táo
+                  Sample Woman Top
                   <span class="beta-sales-price">$34.55</span>
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="/detail/{{$sp->id}}"><img src="source\image\product\banhkem-dau.jpg"
+                <a class="pull-left" href="product.html"><img src="source/assets/dest/image/products/sales/2.png"
                     alt=""></a>
                 <div class="media-body">
-                  Chocolate
+                  Sample Woman Top
                   <span class="beta-sales-price">$34.55</span>
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="/detail/{{$sp->id}}"><img src="source\image\product\banh-mi-nhan-man.jpg"
+                <a class="pull-left" href="product.html"><img src="source/assets/dest/image/products/sales/3.png"
                     alt=""></a>
                 <div class="media-body">
-                  Caramen
+                  Sample Woman Top
                   <span class="beta-sales-price">$34.55</span>
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="/detail/{{$sp->id}}"><img src="source\image\product\banhkem-dau.jpg"
+                <a class="pull-left" href="product.html"><img src="source/assets/dest/image/products/sales/4.png"
                     alt=""></a>
                 <div class="media-body">
-                  Cupcake
+                  Sample Woman Top
                   <span class="beta-sales-price">$34.55</span>
                 </div>
               </div>
@@ -233,6 +234,8 @@
           </div>
         </div> <!-- best sellers widget -->
       </div>
+
+      
     </div>
   </div> <!-- #content -->
 </div> <!-- .container -->

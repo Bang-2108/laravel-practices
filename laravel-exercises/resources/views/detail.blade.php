@@ -233,6 +233,7 @@
           </div>
         </div> <!-- best sellers widget -->
       </div>
+      
     </div>
   </div> <!-- #content -->
 </div> <!-- .container -->
