@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+
+
 use App\Models\Product;
 use App\Models\Slide;
 use App\Models\Comment;
 use App\Models\TypeProduct;
 use App\Models\BillDetail;
+use App\Models\Users;
 
 class PageController extends Controller
 {
@@ -46,13 +51,64 @@ class PageController extends Controller
         $type_product = TypeProduct::all();
         return view('pages.about',  compact('type_product'));
     }
-
     public function getSearch(Request $request) {
         $key = $request->input('search'); 
-        $products = Product::where('name', 'LIKE', "%$key%")->paginate(6);
+        $products = Product::where('name', 'LIKE', "%$key%")->paginate(3);
         return view('pages.search', compact('products', 'key'));
     }
+
+    // Signup - Signin
+    public function getRegister() {
+        return view('pages.register');
+    }
+    public function postRegister(Request $request) {
+        $input = $request -> validate([
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+            'c_password' => 'required|same:password'
+        ]);
+
+        $input['password'] =bcrypt($input['password']);
+        Users::create($input);
+
+        echo '
+            <script>
+                alert("Đăng ký thành công. Vui lòng đăng nhập.");
+                window.location.assign("login");
+            </script>';
+    }
     
+    public function getLogin() {
+        return view('pages.login');
+    }
+    public function postLogin(Request $request) {
+        $login = [
+            'email' => $request -> input('email'),
+            'password' => $request -> input('pw')
+        ];
+        if(Auth::attempt($login)) {
+            $user = Auth::user();
+            Session::put('user', $user);
+
+            echo    '<script>
+                        alert("Đăng nhập thành công.");
+                        window.location.assign("homepage");
+                    </script>';
+                    '<script>
+                        alert("Đăng nhập thất bại");
+                        window.location.assgin("login");
+                    </script>';
+                
+            }
+        }
+
+        public function Logout() {
+            Session::forget('user');
+            // Session::forrget('');
+            return redirect('/homepage');
+        }
+
     /// Admin
     public function getIndexAdmin() {
         $products = Product::all();
@@ -69,5 +125,6 @@ class PageController extends Controller
     }
     public function exportAdminProduct() {
 
+        
     }
 }

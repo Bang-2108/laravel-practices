@@ -56,6 +56,8 @@
                         @else
                         <p class="text-center text-muted">Không tìm thấy sản phẩm nào.</p>
                         @endif
+
+                        <div class="row">{{$products->links("pagination::bootstrap-4")}}</div>
                     </div> <!-- .beta-products-list -->
 
                 </div> <!-- end section with sidebar and main content -->

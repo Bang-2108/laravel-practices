@@ -19,14 +19,22 @@ Route::get('/contact', [PageController::class, 'getContact']);
 Route::get('/about', [PageController::class, 'getAbout']);
 Route::get('/search', [PageController::class, 'getSearch']) -> name('search');
 
-// Cake_Shop - Admin
+Route::get('/register', [PageController::class, 'getRegister']) -> name('register');
+Route::post('/register', [PageController::class, 'postRegister']);
+
+Route::get('/login', [PageController::class, 'getLogin']);
+Route::post('/login', [PageController::class, 'postLogin']);
+
+Route::get('logout', [PageController::class, 'Logout']);
+
+// Cake_Shop - Admin (get: create, post: store)
 Route::get('/admin', [PageController::class, 'getIndexAdmin']);
 Route::get('/admin-export', [PageController::class, 'exportAdminProduct'])->name('export');
-// Cake_Shop - Admin - Add product (get: create, post: store)
+
 Route::get('/admin-add-form', [PageController::class, 'getAdminAdd'])->name('add-product');
 Route::post('/admin-add-form', [ProductController::class, 'postAdminAdd']);
-// Cake_Shop - Admin - Edit product
+
 Route::get('/admin-edit-form/{id}', [PageController::class, 'getAdminEdit']);
 Route::post('/admin-edit', [ProductController::class, 'postAdminEdit']);
-// Cake_Shop - Admin - Delete product
+
 Route::post('/admin-delete/{id}', [ProductController::class, 'postAdminDelete']);

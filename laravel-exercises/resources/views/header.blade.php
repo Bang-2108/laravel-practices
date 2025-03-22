@@ -9,9 +9,13 @@
             </div>
             <div class="pull-right auto-width-right">
                 <ul class="top-details menu-beta l-inline">
-                    <li><a href="/profile"><i class="fa fa-user"></i>Tài khoản</a></li>
-                    <li><a href="/signin">Đăng kí</a></li>
-                    <li><a href="/signup">Đăng nhập</a></li>
+                    @if(Session::has('user'))
+                        <li><a href="/logout"><i class="fa fa-user">{{Session('user')->name}}</a></li>
+                    @else
+                        <!-- <li><a href="/profile"><i class="fa fa-user"></i>Tài khoản</a></li> -->
+                        <li><a href="/register">Đăng kí</a></li>
+                        <li><a href="/login">Đăng nhập</a></li>
+                    @endif
                 </ul>
             </div>
             <div class="clearfix"></div>
