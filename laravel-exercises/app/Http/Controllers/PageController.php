@@ -84,25 +84,26 @@ class PageController extends Controller
     }
     public function postLogin(Request $request) {
         $login = [
-            'email' => $request -> input('email'),
-            'password' => $request -> input('pw')
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
         ];
-        if(Auth::attempt($login)) {
+    
+        if (Auth::attempt($login)) {
             $user = Auth::user();
             Session::put('user', $user);
-
+    
             echo    '<script>
                         alert("Đăng nhập thành công.");
                         window.location.assign("homepage");
                     </script>';
-                    '<script>
-                        alert("Đăng nhập thất bại");
-                        window.location.assgin("login");
+        } else {
+            echo    '<script>
+                        alert("Đăng nhập thất bại.");
+                        window.location.assign("login");
                     </script>';
-                
-            }
         }
-
+    }
+    
         public function Logout() {
             Session::forget('user');
             // Session::forrget('');
