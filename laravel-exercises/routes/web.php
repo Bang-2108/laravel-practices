@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CreateTableController;
 use App\Http\Controllers\ProductController;
+use App\Models\User;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,6 +27,21 @@ Route::get('/login', [PageController::class, 'getLogin']);
 Route::post('/login', [PageController::class, 'postLogin']);
 
 Route::get('logout', [PageController::class, 'Logout']);
+
+Route::get('/verify-email/{token}', function ($token) {
+    $user = User::where('verification_token', $token)->first();
+
+    if (!$user) {
+        return response('<html><body><h2>Token không hợp lệ!</h2></body></html>', 400);
+    }
+
+    $user->update([
+        'is_verified' => true,
+        'verification_token' => null,
+    ]);
+
+    return response('<html><body><h2>Tài khoản của bạn đã được xác nhận!</h2></body></html>');
+})->name('verify.email');
 
 // Cake_Shop - Admin (get: create, post: store)
 Route::get('/admin', [PageController::class, 'getIndexAdmin']);

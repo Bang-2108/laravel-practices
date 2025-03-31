@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use App\Jobs\SendEmail;
+
 
 
 use App\Models\Product;
@@ -109,6 +111,23 @@ class PageController extends Controller
             // Session::forrget('');
             return redirect('/homepage');
         }
+
+        // Send Email
+        public function postCheckout(Request $req)
+        {
+            // Xử lý đặt hàng ở đây...
+        
+            $cart = Session::get('cart');
+        
+            $message = [
+                'type' => 'Email thông báo đặt hàng thành công',
+                'thanks' => 'Cảm ơn ' . $req->name . ' đã đặt hàng.',
+                'cart' => $cart,
+                'content' => 'Đơn hàng sẽ tới tay bạn sớm nhất.',
+            ];
+        
+            SendEmail::dispatch($message, $req->email)->delay(now()->addMinute(1));
+        }        
 
     /// Admin
     public function getIndexAdmin() {
