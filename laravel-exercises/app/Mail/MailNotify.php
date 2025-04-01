@@ -11,21 +11,21 @@ class MailNotify extends Mailable
     use Queueable, SerializesModels;
 
     // Thêm các thuộc tính cần thiết
-    public $message;
+    public $data;
 
     // Khởi tạo các tham số
-    public function __construct($message)
+    public function __construct($data)
     {
-        $this->message = $message;
+        $this->data = $data;
     }
 
     // Xây dựng nội dung email
     public function build()
     {
         return $this->subject('Thông báo từ hệ thống')
-                    ->view('emails.notify')
+                    ->view('emails.verify-email')
                     ->with([
-                        'message' => $this->message,
+                        'data' => $this->data,
                     ]);
     }
 }

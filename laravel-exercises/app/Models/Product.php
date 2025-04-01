@@ -12,8 +12,10 @@ class Product extends Model
     protected $table = 'products';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'name', 'id_type', 'description', 'unit_price', 'promotion_price', 'image', 'unit','new', 'created_at', 'updated_at'
+        'name', 'id_type', 'description', 'unit_price', 'promotion_price', 
+        'image', 'unit', 'new'
     ];
+    
 
     public function typeProduct()
     {

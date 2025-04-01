@@ -59,8 +59,8 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select>
-              <!-- <a class="add-to-cart" href=""><i
-                  class="fa fa-shopping-cart"></i></a> -->
+              <a class="add-to-cart" href="{{route('themgiohang',$products->id)}}">
+                <i class="fa fa-shopping-cart"></i></a>
               <div class="clearfix"></div>
             </div>
           </div>
@@ -142,9 +142,16 @@
                   </p>
                 </div>
                 <div class="single-item-caption">
-                  <!-- <a class="add-to-cart pull-left" href=""><i
-                      class="fa fa-shopping-cart"></i></a> -->
-                  <a class="beta-btn primary" href="/detail/{{$sp->id}}">Details <i class="fa fa-chevron-right"></i></a>
+
+                  <a class="add-to-cart pull-left" href="{{route('themgiohang',$products->id)}}">
+                    <i class="fa fa-shopping-cart"></i>
+                  </a>
+
+                  <a class="add-to-wishlist" href="wishlist/add/{{$products->id}}"><i class="fa fa-heart"></i></a>	
+
+                  <a class="beta-btn primary" href="detail/{{$products->id}}">Details
+                    <i class="fa fa-chevron-right"></i>
+                  </a>
                   <div class="clearfix"></div>
                 </div>
               </div>
@@ -235,7 +242,7 @@
         </div> <!-- best sellers widget -->
       </div>
 
-      
+
     </div>
   </div> <!-- #content -->
 </div> <!-- .container -->

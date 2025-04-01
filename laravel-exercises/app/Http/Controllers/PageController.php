@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Auth;
-use App\Jobs\SendEmail;
-
 
 
 use App\Models\Product;
@@ -14,8 +11,7 @@ use App\Models\Slide;
 use App\Models\Comment;
 use App\Models\TypeProduct;
 use App\Models\BillDetail;
-use App\Models\Users;
-
+use App\Models\Cart;
 class PageController extends Controller
 {
 
@@ -37,13 +33,22 @@ class PageController extends Controller
         return view('pages.categories', compact('sp_theoloai','type_product','sp_khac'));
     }
 
+    // public function getLoaiSP($type)
+    // {
+    //     $products = Product::where("id_type", $type)->get();
+    //     $type_product = TypeProduct::all();
+    //     $sp_khac = Product::where("id_type", '<>', $type)->paginate(3);
+        
+    //     return view('pages.categories', compact('products', 'type_product', 'sp_khac'));
+    // }
+    
+    
     public function getDetail (Request $request) {
         $products = Product::where('id', $request -> id) -> first();
         $type_product = TypeProduct::all();
         $splienquan = Product::where('id', '<>', $products -> id, 'and', 'id_type', '=', $products -> id_type,) -> paginate(3);
         $comments = Comment::where('id_product', $request -> id) -> get();
         return view('pages.detail', compact('products', 'splienquan', 'comments', 'type_product'));
-
     }
     public function getContact() {
         $type_product = TypeProduct::all();
@@ -58,76 +63,34 @@ class PageController extends Controller
         $products = Product::where('name', 'LIKE', "%$key%")->paginate(3);
         return view('pages.search', compact('products', 'key'));
     }
+// Cart
+    public function getAddToCart(Request $req, $id)
+    {
+        $product = Product::find($id);
+        if (!$product) return redirect()->back();
 
-    // Signup - Signin
-    public function getRegister() {
-        return view('pages.register');
-    }
-    public function postRegister(Request $request) {
-        $input = $request -> validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users',
-            'password' => 'required',
-            'c_password' => 'required|same:password'
-        ]);
+        $oldCart = Session('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $id);
+        $req->session()->put('cart', $cart);
 
-        $input['password'] =bcrypt($input['password']);
-        Users::create($input);
+        return redirect()->back();
+    }
 
-        echo '
-            <script>
-                alert("Đăng ký thành công. Vui lòng đăng nhập.");
-                window.location.assign("login");
-            </script>';
-    }
-    
-    public function getLogin() {
-        return view('pages.login');
-    }
-    public function postLogin(Request $request) {
-        $login = [
-            'email' => $request->input('email'),
-            'password' => $request->input('password'),
-        ];
-    
-        if (Auth::attempt($login)) {
-            $user = Auth::user();
-            Session::put('user', $user);
-    
-            echo    '<script>
-                        alert("Đăng nhập thành công.");
-                        window.location.assign("homepage");
-                    </script>';
-        } else {
-            echo    '<script>
-                        alert("Đăng nhập thất bại.");
-                        window.location.assign("login");
-                    </script>';
+    public function getDelItemCart($id){
+        $oldCart = Session::has('cart')?Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id);
+        if(count($cart->items)>0){
+        Session::put('cart',$cart);
+
         }
-    }
-    
-        public function Logout() {
-            Session::forget('user');
-            // Session::forrget('');
-            return redirect('/homepage');
+        else{
+            Session::forget('cart');
         }
+        return redirect()->back();
+    }
 
-        // Send Email
-        public function postCheckout(Request $req)
-        {
-            // Xử lý đặt hàng ở đây...
-        
-            $cart = Session::get('cart');
-        
-            $message = [
-                'type' => 'Email thông báo đặt hàng thành công',
-                'thanks' => 'Cảm ơn ' . $req->name . ' đã đặt hàng.',
-                'cart' => $cart,
-                'content' => 'Đơn hàng sẽ tới tay bạn sớm nhất.',
-            ];
-        
-            SendEmail::dispatch($message, $req->email)->delay(now()->addMinute(1));
-        }        
 
     /// Admin
     public function getIndexAdmin() {
