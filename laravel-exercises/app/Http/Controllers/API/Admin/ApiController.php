@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ApiController extends Controller
 {
     /**
      * Lấy danh sách tất cả sản phẩm

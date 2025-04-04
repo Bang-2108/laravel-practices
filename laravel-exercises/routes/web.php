@@ -5,6 +5,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CreateTableController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\API\Admin\ApiController;
 use App\Models\User;
 
 Route::get('/', function () {
@@ -29,7 +30,7 @@ Route::get('del-cart/{id}', [PageController::class, 'getDelItemCart'])->name('xo
 Route::get('/register', [AuthController::class, 'getRegister']) -> name('register');
 Route::post('/register', [AuthController::class, 'postRegister']);
 
-Route::get('/login', [AuthController::class, 'getLogin']);
+Route::get('/login', [AuthController::class, 'getLogin'])-> name('login');
 Route::post('/login', [AuthController::class, 'postLogin']);
 
 Route::get('logout', [AuthController::class, 'Logout']);
@@ -37,6 +38,7 @@ Route::get('logout', [AuthController::class, 'Logout']);
 
 // Cake_Shop - Admin (get: create, post: store)
 Route::get('/admin', [PageController::class, 'getIndexAdmin']);
+// Route::get('/admin/pros', [ApiController::class, 'index']);
 Route::get('/admin-export', [PageController::class, 'exportAdminProduct'])->name('export');
 
 Route::get('/admin-add-form', [PageController::class, 'getAdminAdd'])->name('add-product');
@@ -46,3 +48,12 @@ Route::get('/admin-edit-form/{id}', [PageController::class, 'getAdminEdit']);
 Route::post('/admin-edit', [ProductController::class, 'postAdminEdit']);
 
 Route::post('/admin-delete/{id}', [ProductController::class, 'postAdminDelete']);
+
+// API
+Route::prefix('admin')->group(function () {
+    Route::get('products', [ApiController::class, 'index']);
+    Route::post('products', [ApiController::class, 'store']);
+    Route::get('products/{product}', [ApiController::class, 'show']);
+    Route::put('products/{product}', [ApiController::class, 'update']);
+    Route::delete('products/{product}', [ApiController::class, 'destroy']);
+});
