@@ -80,7 +80,7 @@
                                     </span>
                                 </div>
                                 <div class="center">
-                                    <a href="" class="beta-btn primary">Đặt hàng <i class="fa fa-chevron-right"></i></a>
+                                    <a href="{{ route('vnpay.return-vnpay') }}" class="beta-btn primary">Đặt hàng <i class="fa fa-chevron-right"></i></a>
                                 </div>
                             </div>
                             @else

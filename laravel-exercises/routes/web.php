@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CreateTableController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\API\Admin\ApiController;
+use App\Http\Controllers\VnPayController;
 use App\Models\User;
 
 Route::get('/', function () {
@@ -57,3 +58,11 @@ Route::prefix('admin')->group(function () {
     Route::put('products/{product}', [ApiController::class, 'update']);
     Route::delete('products/{product}', [ApiController::class, 'destroy']);
 });
+
+// Route::get('/return-vnpay', function(){
+//     return view('vnpay.return-vnpay');
+// });
+
+Route::get('/return-vnpay', [VnPayController::class, 'returnVnPay'])->name('vnpay.return-vnpay');
+Route::get('/vnpay-fail', [VnPayController::class, 'paymentFail'])->name('vnpay.fail');
+// Route::get('/return-vnpay', [VnPayController::class, 'payment'])->name('vnpay.return-vnpay');

@@ -60,7 +60,18 @@ class CreateTableController extends Controller
             $table->string('note', 500)->nullable();
             $table->timestamps();
         });
-
+        // payment
+        Schema::create('payments', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('bill_id');
+            $table->string('payment_method', 100);
+            $table->decimal('amount', 10, 2);
+            $table->string('status', 50)->default('PENDING');
+            $table->timestamps();
+        
+            $table->foreign('bill_id')->references('id')->on('bills')->onDelete('cascade'); 
+        });
+        
         // bill_detail (engine MyISAM)
         Schema::create('bill_detail', function (Blueprint $table) {
             $table->engine = 'MyISAM';
