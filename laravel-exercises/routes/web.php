@@ -5,7 +5,6 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CreateTableController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\API\Admin\ApiController;
 use App\Http\Controllers\VnPayController;
 use App\Models\User;
 
@@ -49,15 +48,6 @@ Route::get('/admin-edit-form/{id}', [PageController::class, 'getAdminEdit']);
 Route::post('/admin-edit', [ProductController::class, 'postAdminEdit']);
 
 Route::post('/admin-delete/{id}', [ProductController::class, 'postAdminDelete']);
-
-// API
-Route::prefix('admin')->group(function () {
-    Route::get('products', [ApiController::class, 'index']);
-    Route::post('products', [ApiController::class, 'store']);
-    Route::get('products/{product}', [ApiController::class, 'show']);
-    Route::put('products/{product}', [ApiController::class, 'update']);
-    Route::delete('products/{product}', [ApiController::class, 'destroy']);
-});
 
 // Route::get('/return-vnpay', function(){
 //     return view('vnpay.return-vnpay');
